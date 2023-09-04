@@ -1,0 +1,12 @@
+.elements__like-button {
+  margin-right: 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+@media screen and (max-width:1279px) {
+  .elements__like-button {
+    margin-right: 20px;
+  }
+}

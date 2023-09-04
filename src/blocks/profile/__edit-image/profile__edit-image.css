@@ -1,0 +1,19 @@
+.profile__edit-image {
+  border: 1px solid #fff;
+  padding: 7px 7px;
+  align-self: center;
+  width: 10px;
+}
+
+@media screen and (max-width:1279px) {
+  .profile__edit-image {
+    width: 7.5px;
+    margin-bottom: 14px;
+    padding: 5.25px 5.25px;
+    margin: 0;
+  }
+}
+
+.profile__edit-image:hover {
+  opacity: 0.6;
+}

@@ -1,0 +1,7 @@
+.elements__like-image {
+  padding: 0;
+}
+
+.elements__like-image:hover {
+  opacity: 0.5;
+}

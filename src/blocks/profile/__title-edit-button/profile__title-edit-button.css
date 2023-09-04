@@ -1,0 +1,10 @@
+.profile__title-edit-button {
+  display: flex;
+  gap: 18px;
+}
+
+@media screen and (max-width:767px) {
+  .profile__title-edit-button{
+    gap: 10px;
+  }
+}

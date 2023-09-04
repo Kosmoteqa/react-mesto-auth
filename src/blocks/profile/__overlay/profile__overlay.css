@@ -1,0 +1,30 @@
+.profile__overlay {
+  position: relative;
+  cursor: pointer;
+}
+
+.profile__overlay::after {
+  content: url('../../../images/avatar-edit.png');
+  background-color: #00000082;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  opacity: 0;
+  transition: ease-in-out 0.3s;
+}
+
+.profile__overlay:hover::after {
+  opacity: 1;
+}
+
+@media screen and (max-width:1279px){
+  .profile__overlay {
+    
+  }
+}

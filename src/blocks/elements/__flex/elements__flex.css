@@ -1,0 +1,5 @@
+.elements__flex {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px auto 31px;
+}

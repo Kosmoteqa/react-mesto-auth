@@ -1,0 +1,8 @@
+.popup-image__container {
+  display: flex;
+  margin: auto;
+  max-width: 816px;
+  flex-direction: column;
+  align-items: baseline;
+  position: relative;
+}

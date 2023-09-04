@@ -1,0 +1,12 @@
+.user-form__input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #cccccc;
+  color: #cccccc;
+}
+
+@media screen and (max-width:767px) {
+  .user-form__input {
+    width: 260px;
+  }
+}
