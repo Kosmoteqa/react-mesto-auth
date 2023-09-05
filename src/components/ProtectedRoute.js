@@ -5,6 +5,6 @@ export default function ProtectedRoute({ children, isAuth }) {
   if (isAuth) {
     return children;
   } else {
-    return <Navigate to={"/sign-up"} replace />;
+    return <Navigate to={"/sign-in"} replace />;
   }
 }

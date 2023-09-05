@@ -24,7 +24,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
   const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
-  const [err, setErr] = useState(false);
+  const [isFailInfoTooltipStatus, setIsFailInfoTooltipStatus] = useState(false);
   const [isAuth, setIsAuth] = useState(false);
   const [email, setEmail] = useState("");
 
@@ -143,54 +143,55 @@ function App() {
       });
   }
 
-  function handleLogin(obj) {
-    if (!obj.email || !obj.password) {
+  function handleLogin(userData) {
+    if (!userData.email || !userData.password) {
       return;
     }
 
     auth
-      .login(obj)
+      .login(userData)
       .then((data) => {
         if (data.token) {
           setIsAuth(true);
           localStorage.setItem("token", data.token);
-          setEmail(obj.email);
+          setEmail(userData.email);
           navigate("/");
         }
       })
       .catch((err) => {
-        setErr(true);
+        setIsFailInfoTooltipStatus(true);
         setInfoTooltipOpen((state) => !state);
       });
   }
 
-  function handleRegister(obj) {
-    if (!obj.email || !obj.password) {
+  function handleRegister(userData) {
+    if (!userData.email || !userData.password) {
       return;
     }
 
     auth
-      .register(obj)
+      .register(userData)
       .then((data) => {
-        setErr(false);
+        setIsFailInfoTooltipStatus(false);
         setInfoTooltipOpen((state) => !state);
         navigate("/sign-in");
       })
       .catch((err) => {
-        setErr(true);
+        setIsFailInfoTooltipStatus(true);
         setInfoTooltipOpen((state) => !state);
       });
   }
 
   function handleExit() {
     setEmail("");
+    setIsAuth(false);
     localStorage.removeItem("token");
   }
 
   return (
     <>
       <CurrentUserContext.Provider value={currentUser}>
-        <Header email={email} onExit={handleExit}  />
+        <Header email={email} onExit={handleExit} />
         <Routes>
           <Route
             path="/"
@@ -240,11 +241,11 @@ function App() {
           onUpdateAvatar={handleUpdateAvatar}
         />
 
-<InfoTooltip
+        <InfoTooltip
           name={"infotooltip"}
           isOpen={infoTooltipOpen}
           onClose={closeAllPopups}
-          err={err}
+          err={isFailInfoTooltipStatus}
         />
       </CurrentUserContext.Provider>
     </>

@@ -1,18 +1,16 @@
-class Auth {
+class AuthApi {
   constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
   }
 
   _handleResponse(response) {
-  
     if (response.ok) {
-      return response.json(); 
+      return response.json();
     }
-    return Promise.reject(`Произошла ошибка: ${response.status}`); 
+    return Promise.reject(`Произошла ошибка: ${response.status}`);
   }
- 
-  _request(url, options) {
 
+  _request(url, options) {
     return fetch(url, options).then(this._handleResponse);
   }
 
@@ -47,6 +45,6 @@ class Auth {
   }
 }
 
-export const auth = new Auth({
+export const auth = new AuthApi({
   baseUrl: "https://auth.nomoreparties.co",
 });
