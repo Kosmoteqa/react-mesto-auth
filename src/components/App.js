@@ -10,7 +10,7 @@ import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
 import { api } from "../utils/Api";
-import { AuthApi } from "../utils/AuthApi.js";
+import { auth } from "../utils/AuthApi.js";
 import ProtectedRoute from "./ProtectedRoute";
 import Login from "./Login";
 import Register from "./Register";
@@ -46,7 +46,8 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      AuthApi.checkToken(token)
+      auth
+        .checkToken(token)
         .then((res) => {
           setIsAuth(true);
           setEmail(res.data.email);
@@ -147,7 +148,8 @@ function App() {
       return;
     }
 
-    AuthApi.login(userData)
+    auth
+      .login(userData)
       .then((data) => {
         if (data.token) {
           setIsAuth(true);
@@ -167,7 +169,8 @@ function App() {
       return;
     }
 
-    AuthApi.register(userData)
+    auth
+      .register(userData)
       .then((data) => {
         setIsFailInfoTooltipStatus(false);
         setInfoTooltipOpen((state) => !state);
