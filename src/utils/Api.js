@@ -83,9 +83,9 @@ export default class Api {
   }
 }
 export const api = new Api({
-  url: "https://nomoreparties.co/v1/cohort-70",
+  url: "https://api.mesto-roma.nomoredomainsrocks.ru",
   headers: {
-    Authorization: "6f58dff0-d5a4-4749-a042-1547f42e122b",
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
     "Content-type": "application/json",
   },
 });

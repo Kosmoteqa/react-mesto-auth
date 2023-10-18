@@ -46,5 +46,5 @@ class AuthApi {
 }
 
 export const auth = new AuthApi({
-  baseUrl: "https://auth.nomoreparties.co",
+  baseUrl: "https://api.mesto-roma.nomoredomainsrocks.ru",
 });
