@@ -82,10 +82,3 @@ export default class Api {
     }
   }
 }
-export const api = new Api({
-  url: "https://api.mesto-roma.nomoredomainsrocks.ru",
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem('token')}`,
-    "Content-type": "application/json",
-  },
-});

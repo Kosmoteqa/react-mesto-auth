@@ -9,7 +9,7 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
-import { api } from "../utils/Api";
+import Api from "../utils/Api";
 import { auth } from "../utils/AuthApi.js";
 import ProtectedRoute from "./ProtectedRoute";
 import Login from "./Login";
@@ -29,7 +29,13 @@ function App() {
   const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
-
+  const api = new Api({
+    url: "https://api.mesto-roma.nomoredomainsrocks.ru",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+      "Content-type": "application/json",
+    },
+  });
   useEffect(() => {
     if (isAuth) {
       Promise.all([api.getUserInfo(), api.getAllCards()])
